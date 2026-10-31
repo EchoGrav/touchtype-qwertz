@@ -8,7 +8,7 @@ import "Curriculum.js" as Curriculum
 import "Corpus.js" as Corpus
 import "ProgressStore.js" as Progress
 
-// Touch Type DE (German QWERTZ clone) — guided touch-typing trainer overlay.
+// Touch Type QWERTZ clone — guided touch-typing trainer overlay.
 //
 // Screens: "menu" (level select + streak/stats), "lesson" (live typing
 // session with keyboard hint), "results" (accuracy/wpm/time + pass/fail +
@@ -38,7 +38,7 @@ Item {
   property int cardHeight: Math.min(Style.space(640), panel.height - Style.gapsOut * 2)
 
   // ---- progress persistence -------------------------------------------
-  property string progressPath: Quickshell.env("HOME") + "/.local/state/omarchy/touchtype-de-progress.json"
+  property string progressPath: Quickshell.env("HOME") + "/.local/state/omarchy/touchtype-qwertz-progress.json"
   property var progress: Progress.defaultProgress()
   readonly property var levelList: Curriculum.levels(Corpus.punctuationChars)
   readonly property var fingerList: Curriculum.fingerLevels()
@@ -169,7 +169,7 @@ Item {
   function dismiss() {
     root.opened = false
     if (root.shell && typeof root.shell.hide === "function")
-      root.shell.hide((root.manifest && root.manifest.id) || "io.github.echograv.touchtype-de")
+      root.shell.hide((root.manifest && root.manifest.id) || "io.github.echograv.touchtype-qwertz")
   }
 
   function toggle() {
@@ -357,7 +357,7 @@ Item {
     visible: root.opened
     anchors { top: true; bottom: true; left: true; right: true }
     color: "transparent"
-    WlrLayershell.namespace: "omarchy-touchtype-de"
+    WlrLayershell.namespace: "omarchy-touchtype-qwertz"
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
     exclusionMode: ExclusionMode.Ignore
@@ -449,7 +449,7 @@ Item {
                 id: titleText
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                text: "Touch Type DE"
+                text: "Touch Type QWERTZ"
                 color: root.foreground
                 font.family: Style.font.family
                 font.pixelSize: Style.font.display

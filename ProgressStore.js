@@ -1,4 +1,4 @@
-// Progress persistence and stat calculations for the Touch Type DE trainer.
+// Progress persistence and stat calculations for the Touch Type QWERTZ trainer.
 // Pure JS, no imports — operates on plain JSON-shaped objects so it can be
 // round-tripped straight to/from FileView.setText()/text().
 .pragma library

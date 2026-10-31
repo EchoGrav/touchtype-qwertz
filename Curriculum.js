@@ -1,6 +1,6 @@
-// Level definitions and drill-text generation for the Touch Type DE trainer.
+// Level definitions and drill-text generation for the Touch Type QWERTZ trainer.
 // Pure JS, no Quickshell/QML imports, and no dependency on other .js
-// library files — callers (TouchTypeDE.qml) import Corpus.js separately and
+// library files — callers (TouchTypeQWERTZ.qml) import Corpus.js separately and
 // pass word lists / punctuation in explicitly. This keeps each script a
 // self-contained library, matching how other plugins in this shell keep
 // their model scripts import-free of each other.

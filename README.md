@@ -1,9 +1,11 @@
-# Touch Typing Trainer DE
+# Touch Typing Trainer QWERTZ
 
-**A German clone of the "Touch Typing Trainer" Omarchy plugin by Anton Milman** (MIT). It is a separate plugin with its own id (`io.github.echograv.touchtype-de`), so it can be installed next to the original; progress is stored separately.
+**A QWERTZ clone of the "Touch Typing Trainer" Omarchy plugin by Anton Milman** (MIT). It is a separate plugin with its own id (`io.github.echograv.touchtype-qwertz`), so it can be installed next to the original; progress is stored separately.
 
 This clone targets the **German keyboard layout (DIN 2137 T1, QWERTZ)**: on-screen keyboard, finger zones, drills (incl. Ä Ö Ü ß) and German word/sentence banks. It reads the characters your system layout produces, so set your layout to `de` (Omarchy: `kb_layout = de` in `~/.config/hypr/input.conf`).
 Dead keys (`^`, `´`, `` ` ``) are shown on the board but never used in drills.
+
+Note: the on-screen keyboard and the drills implement the German/Austrian QWERTZ layout (DIN 2137 T1) with German texts. Other QWERTZ variants (e.g. Swiss, Czech, Slovak, Hungarian) differ in some keys and are not covered yet.
 
 Touch (Blind) typing is hugely overrated in the age of AI, but if you want to go old-school and actually use a keyboard, you better be quick.
 Enjoy training Touch typing using this plugin while you agent is writing your code.
@@ -31,71 +33,71 @@ whatever Omarchy theme you have active.
   built from your per-key hit/miss stats.
 - Daily streak tracking and best-score-per-level persistence.
 - Compact bar-widget indicator (Finger Gym level + Classic level + streak), click to open.
-- Omarchy menu integration: `Trigger → Touch Type DE → Open trainer / Reset progress`.
+- Omarchy menu integration: `Trigger → Touch Type QWERTZ → Open trainer / Reset progress`.
 
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/EchoGrav/touchtype-de.git --enable
+omarchy plugin add https://github.com/EchoGrav/touchtype-qwertz.git --enable
 ```
 
-That's it — this clones the plugin into `~/.config/omarchy/plugins/io.github.echograv.touchtype-de`,
+That's it — this clones the plugin into `~/.config/omarchy/plugins/io.github.echograv.touchtype-qwertz`,
 registers it with the running shell, and places the bar indicator for you
 (you'll be prompted to pick left/center/right, or pass
 `--enable` non-interactively and move it later with
-`omarchy bar move io.github.echograv.touchtype-de --section right`).
+`omarchy bar move io.github.echograv.touchtype-qwertz --section right`).
 
 If you'd rather install manually (e.g. for local development):
 
 ```bash
-git clone https://github.com/EchoGrav/touchtype-de.git ~/.config/omarchy/plugins/io.github.echograv.touchtype-de
-omarchy plugin enable io.github.echograv.touchtype-de --section right
+git clone https://github.com/EchoGrav/touchtype-qwertz.git ~/.config/omarchy/plugins/io.github.echograv.touchtype-qwertz
+omarchy plugin enable io.github.echograv.touchtype-qwertz --section right
 ```
 
 ### Optional: menu shortcuts
 
 The bar icon alone is enough to open the trainer, but if you'd also like it
-reachable from the Omarchy launcher menu (`Trigger → Touch Type DE`), add these
+reachable from the Omarchy launcher menu (`Trigger → Touch Type QWERTZ`), add these
 lines to `~/.config/omarchy/extensions/omarchy-menu.jsonc` (this file is
 user-owned config, not something a plugin installer can safely write to for
 you):
 
 ```jsonc
-"trigger.touchtype-de": {"icon":"⌨","label":"Touch Type DE","aliases":["touchtype-de","tippen","typing"]},
-"trigger.touchtype-de.open": {"icon":"⌨","label":"Open trainer","action":"omarchy-shell shell toggle io.github.echograv.touchtype-de"},
-"trigger.touchtype-de.reset": {"icon":"󰭌","label":"Reset progress","action":"rm -f ~/.local/state/omarchy/touchtype-de-progress.json && omarchy-notification-send 'Touch Type DE' 'Progress reset'"}
+"trigger.touchtype-qwertz": {"icon":"⌨","label":"Touch Type QWERTZ","aliases":["touchtype-qwertz","tippen","typing"]},
+"trigger.touchtype-qwertz.open": {"icon":"⌨","label":"Open trainer","action":"omarchy-shell shell toggle io.github.echograv.touchtype-qwertz"},
+"trigger.touchtype-qwertz.reset": {"icon":"󰭌","label":"Reset progress","action":"rm -f ~/.local/state/omarchy/touchtype-qwertz-progress.json && omarchy-notification-send 'Touch Type QWERTZ' 'Progress reset'"}
 ```
 
 The file hot-reloads on save — no restart needed.
 
 ## Usage
 
-- Click the ⌨ bar indicator, or run `omarchy-shell shell toggle io.github.echograv.touchtype-de`,
+- Click the ⌨ bar indicator, or run `omarchy-shell shell toggle io.github.echograv.touchtype-qwertz`,
   or (if you added the optional menu entries) use
-  `Trigger → Touch Type DE → Open trainer`.
+  `Trigger → Touch Type QWERTZ → Open trainer`.
 - Navigate levels with `↑`/`↓` + `Enter`, number keys, or mouse click.
   Switch tracks with `←`/`→` (or `Tab`), or by clicking the track tabs.
 - `Esc` returns to the previous screen / closes the overlay.
-- Progress is stored at `~/.local/state/omarchy/touchtype-de-progress.json`.
+- Progress is stored at `~/.local/state/omarchy/touchtype-qwertz-progress.json`.
   Reset anytime by deleting that file, or via the optional menu's
   "Reset progress" action.
 
 ## Uninstall
 
 ```bash
-omarchy plugin remove io.github.echograv.touchtype-de
+omarchy plugin remove io.github.echograv.touchtype-qwertz
 ```
 
 This disables the plugin, removes its bar placement, and deletes
-`~/.config/omarchy/plugins/io.github.echograv.touchtype-de` (a timestamped backup is kept
-automatically alongside it, e.g. `.touchtype-de.bak.<timestamp>`, in case you
+`~/.config/omarchy/plugins/io.github.echograv.touchtype-qwertz` (a timestamped backup is kept
+automatically alongside it, e.g. `.touchtype-qwertz.bak.<timestamp>`, in case you
 want to restore it).
 
 To also remove saved progress and the optional menu entries:
 
 ```bash
-rm -f ~/.local/state/omarchy/touchtype-de-progress.json
-# and remove the three trigger.touchtype-de* lines you added to
+rm -f ~/.local/state/omarchy/touchtype-qwertz-progress.json
+# and remove the three trigger.touchtype-qwertz* lines you added to
 # ~/.config/omarchy/extensions/omarchy-menu.jsonc, if you added them
 ```
 
@@ -104,7 +106,7 @@ rm -f ~/.local/state/omarchy/touchtype-de-progress.json
 | File | Purpose |
 |---|---|
 | `manifest.json` | Plugin manifest (id, kinds, entry points). |
-| `TouchTypeDE.qml` | Main overlay: menu/lesson/results screens, state machine, persistence. |
+| `TouchTypeQWERTZ.qml` | Main overlay: menu/lesson/results screens, state machine, persistence. |
 | `Keyboard.qml` | On-screen QWERTZ keyboard visual (incl. AltGr), theme-derived colors. |
 | `BarWidget.qml` | Compact bar indicator (level + streak). |
 | `Corpus.js` | Word/sentence/punctuation data banks. |

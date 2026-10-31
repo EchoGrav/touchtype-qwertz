@@ -7,11 +7,11 @@ import "ProgressStore.js" as Progress
 import "Curriculum.js" as Curriculum
 
 // Compact bar indicator: keyboard icon plus daily streak.
-// Hover shows per-track progress; click opens the Touch Type DE overlay.
+// Hover shows per-track progress; click opens the Touch Type QWERTZ overlay.
 BarWidget {
   id: root
 
-  property string progressPath: Quickshell.env("HOME") + "/.local/state/omarchy/touchtype-de-progress.json"
+  property string progressPath: Quickshell.env("HOME") + "/.local/state/omarchy/touchtype-qwertz-progress.json"
   property var progress: Progress.defaultProgress()
 
   readonly property var fingerList: Curriculum.fingerLevels()
@@ -48,7 +48,7 @@ BarWidget {
     anchors.fill: parent
     bar: root.bar
     text: root.vertical ? "⌨" : root.displayText
-    tooltipText: "Touch Type DE — Finger Gym " + (root.fingerPassed + 1) + "/" + root.fingerList.length + ", Classic " + (root.classicPassed + 1) + "/" + root.levelList.length + ", " + root.streakCount + " day streak"
+    tooltipText: "Touch Type QWERTZ — Finger Gym " + (root.fingerPassed + 1) + "/" + root.fingerList.length + ", Classic " + (root.classicPassed + 1) + "/" + root.levelList.length + ", " + root.streakCount + " day streak"
     horizontalMargin: 8.5
 
     onPressed: function(b) {
