@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.echograv.touchtype-de",
+  "name": "Touch Typing Trainer DE",
+  "version": "2.0.0-de.1",
+  "author": "EchoGrav (German fork of Anton Milman's Touch Typing Trainer)",
+  "license": "MIT",
+  "description": "German (QWERTZ) clone of the Touch Typing Trainer plugin. Touch (Blind) typing in the age of AI, is hugely overrated, but if you want to go old-school and actually use a keyboard, you better be quick. Enjoy training Touch Typing using this plugin while your agent is writing your code.",
+  "kinds": [
+    "overlay",
+    "bar-widget"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "overlay": "TouchTypeDE.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Touch Typing Trainer DE",
+    "description": "Level and streak indicator; click to open the trainer",
+    "category": "Productivity",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
